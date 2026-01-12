@@ -1,0 +1,214 @@
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            /* flex-direction: row; */
+        }
+
+
+        .left {
+            width: 70%;
+            height: 100%;
+            background-color: #764ba2;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .profile-img {
+            width: 10rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 0.2rem solid white;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .left h2 {
+            font-weight: 600;
+        }
+
+        .left p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 50rem;
+        }
+
+
+        .right {
+            width: 30%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2em;
+            box-sizing: border-box;
+        }
+
+
+        .tab-box {
+            width: 100%;
+            height: 50%;
+        }
+
+
+        .radio-btn {
+            display: none;
+        }
+
+
+        .tab-labels {
+            display: flex;
+            background-color: rgb(240, 240, 240);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 100;
+            border-radius: 2rem;
+        }
+
+        .tab-labels label {
+            flex: 1;
+            text-align: center;
+            padding: 1em;
+            cursor: pointer;
+            color: white;
+            font-weight: 900;
+            font-size: 1rem;
+            z-index: 1;
+            
+        }
+
+        .cover {
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .highlight{
+            background-color: #764ba2;
+            height: 95%;
+            width: 99%;
+            border-radius: 2rem;
+            
+        }
+        .input-group {
+            display: none;
+
+        }
+
+        #login:checked~.login-form {
+            display: block;
+        }
+
+        #register:checked~.register-form {
+            display: block;
+        }
+
+        #login:checked~.tab-labels .cover {
+            left: 0;
+        }
+
+        #register:checked~.tab-labels .cover {
+            right: 0;
+        }
+        #login:checked~.tab-labels .register-label {
+            color: #764ba2;
+        }
+
+        #register:checked~.tab-labels .login-label {
+            color: #764ba2;
+        }
+        .box {
+            margin-bottom: 20px;
+        }
+
+        .box label {
+            display: block;
+            font-size: 1rem;
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            
+        }
+
+        .box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 0.4rem;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        .box input::placeholder{
+            color: rgb(214, 210, 210);
+        }
+        .link {
+            text-align: right;
+            font-size: 0.9rem;
+            margin-top: -0.5rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .link a {
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 0.4rem;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #5a3780;
+        }
+
+        @media (max-width :50rem) {
+
+            .container {
+                width: 100%;
+                height: auto;
+                /* display: flex; */
+                flex-direction: column;
+            }
+
+            .left {
+                height: 70%;
+                width: 100%;
+                padding: 20%;
+            }
+
+            .right {
+                height: 30%;
+                width: 100%;
+                padding: 4em;
+            }
+        }
