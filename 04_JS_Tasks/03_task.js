@@ -38,16 +38,3 @@ checkSumPromise
   .then((data) => console.log(data))
   .catch((data) => console.log(data));
 
-// const name = "PREM";
-
-// const obj = {
-//   name: "PREM",
-// };
-
-// const obj2 = {
-//   [name]: "PREM",
-// };
-
-// console.log(obj);
-
-// console.log(obj2);
