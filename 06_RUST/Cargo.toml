@@ -1,0 +1,2 @@
+[workspace]
+members = ["Generics","generic_type","test_folder"]
