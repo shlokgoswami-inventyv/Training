@@ -3,9 +3,9 @@
 version = 4
 
 [[package]]
-name = "generic_type"
+name = "Generics"
 version = "0.1.0"
 
 [[package]]
-name = "test_folder"
+name = "multithreading"
 version = "0.1.0"

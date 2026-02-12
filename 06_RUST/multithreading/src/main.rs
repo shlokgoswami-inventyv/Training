@@ -21,14 +21,14 @@ fn now_secs() -> u64 {
 }
 
 fn main() {
-    let shared_data = Arc::new(Mutex::new(HashSet::<MultiThread>::new()));
+    let shared_data: Arc<Mutex<HashSet<MultiThread>>> = Arc::new(Mutex::new(HashSet::<MultiThread>::new()));
 
     {
-        let data = Arc::clone(&shared_data);
+        let data: Arc<Mutex<HashSet<MultiThread>>> = Arc::clone(&shared_data);
         thread::spawn(move || loop {
             let id = GLOBAL_COUNTER.fetch_add(1, Ordering::Relaxed);
 
-            let record = MultiThread {
+            let record: MultiThread = MultiThread {
                 id,
                 recordAddedTime: now_secs().to_string(),
                 threadId: format!("{:?}", thread::current().id()),
@@ -36,12 +36,12 @@ fn main() {
                 
             data.lock().unwrap().insert(record);
 
-            thread::sleep(Duration::from_secs(6));
+            thread::sleep(Duration::from_secs(10));
         });
     }
 
     {
-        let data = Arc::clone(&shared_data);
+        let data: Arc<Mutex<HashSet<MultiThread>>> = Arc::clone(&shared_data);
         thread::spawn(move || loop {
             {
             let set = data.lock().unwrap();
@@ -59,17 +59,17 @@ fn main() {
         thread::spawn(move || loop {
             let now = now_secs();
             {
-            data.lock().unwrap().retain(|r| {
+            data.lock().unwrap().retain(|r: &MultiThread| {
                 let t: u64 = r.recordAddedTime.parse().unwrap();
                 !(r.id % 2 == 0 && now - t > 20)
             });
             }
-            thread::sleep(Duration::from_secs(5));
+            thread::sleep(Duration::from_secs(20));
         });
     }
 
     {
-        let data = Arc::clone(&shared_data);
+        let data: Arc<Mutex<HashSet<MultiThread>>> = Arc::clone(&shared_data);
         thread::spawn(move || loop {
             let now = now_secs();
             {
@@ -78,16 +78,16 @@ fn main() {
                 !(r.id % 2 != 0 && now - t > 20)
             });
             }
-            thread::sleep(Duration::from_secs(5));
+            thread::sleep(Duration::from_secs(20));
         });
     }
 
     {
-        let data = Arc::clone(&shared_data);
+        let data: Arc<Mutex<HashSet<MultiThread>>> = Arc::clone(&shared_data);
         thread::spawn(move || loop {
             {
             let set = data.lock().unwrap();
-            let count = set.iter().filter(|r| r.id % 2 == 0).count();
+            let count: usize = set.iter().filter(|r: &&MultiThread| r.id % 2 == 0).count();
             println!("Even count: {}", count);
             }
             thread::sleep(Duration::from_secs(1));
@@ -99,7 +99,7 @@ fn main() {
         thread::spawn(move || loop {
             {
             let set = data.lock().unwrap();
-            let count = set.iter().filter(|r| r.id % 2 != 0).count();
+            let count: usize = set.iter().filter(|r: &&MultiThread| r.id % 2 != 0).count();
             println!("Odd count: {}", count);
             }
             thread::sleep(Duration::from_secs(1));
