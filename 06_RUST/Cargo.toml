@@ -1,2 +1,2 @@
 [workspace]
-members = ["Generics", "multithreading"]
+members = ["Generics", "multithreading", "ownership_and_borrowing", "server"]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "f29187cb-cab5-466e-8abd-819cf87e95cb",
+    "username": "shlok",
+    "email": "shlok@gmail.com",
+    "address": {
+      "street": "MG Road",
+      "city": "Mumbai",
+      "country": "India",
+      "zip_code": "400001"
+    },
+    "profile": {
+      "age": 25,
+      "phone": "9876543210",
+      "bio": "Rust developer"
+    }
+  },
+  {
+    "id": "290fcacf-787e-4570-9c9a-235faef93bc4",
+    "username": "shlok",
+    "email": "shlok@gmail.com",
+    "address": {
+      "street": "MG Road",
+      "city": "Mumbai",
+      "country": "India",
+      "zip_code": "400001"
+    },
+    "profile": {
+      "age": 25,
+      "phone": "9876543210",
+      "bio": "Rust developer"
+    }
+  }
+]
